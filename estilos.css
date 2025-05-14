@@ -1,0 +1,129 @@
+/* estilos.css */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  background: linear-gradient(-45deg, #1e1e2f, #2b2b3a, #1c1c2b, #2d2d3b);
+  background-size: 400% 400%;
+  animation: fondoAnimado 15s ease infinite;
+}
+
+@keyframes fondoAnimado {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  z-index: 1000;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
+header h1 {
+  font-size: 3em;
+  animation: entradaTexto 1.5s ease-out;
+}
+
+header p {
+  font-size: 1.2em;
+  max-width: 600px;
+  animation: entradaTexto 2.5s ease-out;
+}
+
+@keyframes entradaTexto {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Carrusel personalizado */
+.carrusel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  padding: 0 40px;
+}
+
+.carrusel-container {
+  display: flex;
+  transition: transform 0.5s ease;
+  gap: 40px;
+  align-items: center;
+}
+
+.foto {
+  flex-shrink: 0;
+  text-align: center;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.foto img {
+  max-height: 70vh;
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.foto h2 {
+  margin-top: 10px;
+}
+
+.control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  font-size: 2em;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 2;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+.foto.inactive {
+  transform: scale(0.8);
+  opacity: 0.5;
+}
+
+.foto.active {
+  transform: scale(1);
+  opacity: 1;
+}
